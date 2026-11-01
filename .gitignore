@@ -1,0 +1,10 @@
+# Raw originals stay local — only the edited, web-ready images are published.
+images/Cars/
+images/pfp/*
+!images/pfp/portrait.jpg
+images/*.png
+images/*.jpg
+images/*.jpeg
+
+# Python
+__pycache__/
