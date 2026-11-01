@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+  <meta name="description" content="Personal portfolio" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#/" class="brand"><span class="prompt">~/</span><span id="brand-name"></span></a>
+    <nav class="nav-links">
+      <a href="#/" data-route="/">about</a>
+      <a href="#/projects" data-route="/projects">projects</a>
+      <a href="#/experience" data-route="/experience">experience</a>
+      <a href="#/resources" data-route="/resources">resources</a>
+    </nav>
+    <button class="kbd-btn" id="open-palette" aria-label="Open command palette"><kbd>⌘</kbd><kbd>K</kbd></button>
+  </header>
+
+  <main id="app"></main>
+
+  <footer class="footer">
+    <div class="footer-cta">
+      <p class="muted">// want to chat?</p>
+      <a id="footer-email" class="btn-primary"></a>
+    </div>
+    <div class="footer-row">
+      <span class="muted" id="footer-copy"></span>
+      <span id="footer-links" class="footer-links"></span>
+    </div>
+  </footer>
+
+  <div class="palette" id="palette" hidden>
+    <div class="palette-box" role="dialog" aria-label="Command palette">
+      <input id="palette-input" placeholder="type a command or search…" autocomplete="off" />
+      <ul id="palette-list"></ul>
+      <p class="palette-hint">↑↓ navigate · ⏎ select · esc close</p>
+    </div>
+  </div>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
