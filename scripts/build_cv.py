@@ -43,7 +43,6 @@ EXPERIENCE = [
         "Build and run backend services on Google Cloud (Cloud Run, Cloud SQL / PostgreSQL): a token-authenticated API "
         "gateway, storage and notes services, a web-crawling service and a command-line client.",
     ]),
-    ("Hackathon Participant — Stripe Hackathon", "Sep 2026", []),
     ("Outbound Sales Advisor — Forward Emphasis International", "Jun – Jul 2026", [
         "Converted free-trial members to paid subscriptions over high-volume outbound calls, consistently exceeding monthly conversion targets.",
     ]),
@@ -61,7 +60,7 @@ EXPERIENCE = [
 ]
 
 PROJECTS = [
-    ("OutSpoken — AI speaking coach · HackUCD 2026 · Team of 4", "2026", [
+    ("OutSpoken — AI speaking coach · HackUCD 2026 (Stripe-sponsored) · Team of 4", "2026", [
         "Owned the backend architecture of a web app that records a spoken take on a prompt, transcribes it and returns "
         "AI feedback on filler words, pauses, pace and delivery, with timestamped “try instead” rewrites.",
         "Designed the API layer connecting the frontend to the OpenRouter API (LLM analysis) and the Stripe API "

@@ -66,7 +66,7 @@ window.SITE = {
         "<strong>OutSpoken</strong> helps creators <em>sound sharper in their next video</em>. You pick a prompt, talk about it for 30 seconds to two minutes — no script, no second takes — and an AI coach reviews the recording.",
         "The report gives a word-for-word transcript with filler words, long pauses and coaching notes highlighted. Tap any highlight to hear that moment; each note quotes what you said, explains the issue and suggests what to say instead. It also checks whether you actually answered the prompt and stayed on topic, and tracks your pace and filler-word count.",
         "It ships as a freemium product: one free analysis a day with no sign-up, and a Pro plan with a 7-day free trial through Stripe. New prompts can be added on the backend and show up on the site within a minute, with no frontend change.",
-        "Built in a team of four at <strong>HackUCD</strong>. I owned the backend architecture: the API layer connecting the frontend to the <strong>OpenRouter API</strong> for AI analysis and the <strong>Stripe API</strong> for payments, deployed on Google Cloud Run — prioritising what would ship a working product before the deadline and adapting the plan as problems came up.", // TODO: add your result at HackUCD
+        "Built in a team of four at <strong>HackUCD</strong>, a Stripe-sponsored hackathon. I owned the backend architecture: the API layer connecting the frontend to the <strong>OpenRouter API</strong> for AI analysis and the <strong>Stripe API</strong> for payments, deployed on Google Cloud Run — prioritising what would ship a working product before the deadline and adapting the plan as problems came up.",
       ],
       tags: ["Speech AI", "OpenRouter", "Stripe", "Cloud Run", "Hackathon"],
       url: "https://hackucd-backend-177345674775.europe-west1.run.app/",
@@ -144,7 +144,6 @@ window.SITE = {
   // Work, leadership, roles. Newest first.
   experience: [
     { role: "Co-Founder", org: "Cyber Supplies", period: "2026 — Present", url: "", detail: "Building backends, gateways and cloud infrastructure for a two-person cybersecurity + AI startup." },
-    { role: "Hackathon Participant", org: "Stripe Hackathon", period: "Sep 2026", url: "", detail: "" }, // TODO: what you built + result
     { role: "Outbound Sales Advisor", org: "Forward Emphasis International", period: "Jun — Jul 2026", url: "", detail: "Converted free-trial members to paid subscriptions over high-volume outbound calls, consistently exceeding monthly conversion targets." },
     { role: "Co-Developer & Marketer", org: "Boltun", period: "2025", url: "https://boltun.io/", detail: "Helped build and test an autonomous AI cold-calling product, and worked on its marketing." },
     { role: "Customer Service Representative", org: "Forward Emphasis", period: "Sep 2024 — Aug 2025", url: "", detail: "Handled a high volume of motor-insurance queries under tight deadlines, gathering and cross-checking details from policyholders and third parties." },
