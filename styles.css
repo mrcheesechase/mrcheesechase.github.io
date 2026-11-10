@@ -329,3 +329,31 @@ section { margin-bottom: 72px; }
 .shot { position: relative; }
 .shot .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 12px 9px; font-size: 11px; color: var(--text); background: linear-gradient(transparent, rgba(0, 0, 0, .85)); opacity: .9; transition: opacity .3s; }
 .shot:hover .cap { opacity: 1; color: var(--accent); }
+
+/* Cyber Supplies: banner in the brand's own style (night #0a0a0a, yellow #ffd400) */
+.bnr-cysu { background: radial-gradient(ellipse at 85% 110%, rgba(255, 212, 0, .16), transparent 55%), #0A0A0A; color: #F6F6F2; }
+.bnr-cysu .b-top { color: #F6F6F2; font-weight: 700; }
+.bnr-cysu .cs-mark { width: 22px; height: 22px; }
+.bnr-cysu .b-head { max-width: 17ch; }
+.bnr-cysu .b-head em { color: #FFD400; }
+.bnr-cysu .cs-term { font-family: "JetBrains Mono", monospace; font-size: 11px; color: #F6F6F2; background: #141414; border: 1px solid #2a2a2a; border-radius: 6px; padding: 6px 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.bnr-cysu .cs-term .dim { color: #FFD400; }
+.cs-cur { display: inline-block; width: 6px; height: 12px; margin-left: 3px; vertical-align: -2px; background: #FFD400; animation: cs-blink 1s steps(1) infinite; }
+@keyframes cs-blink { 50% { opacity: 0; } }
+
+/* Demo terminal on project pages (`demo` in content.js) */
+.demo-term { margin: 28px 0 36px; border: 1px solid var(--accent-soft, #333); border-radius: 10px; background: #0d0d0d; overflow: hidden; font-family: "JetBrains Mono", monospace; font-size: 13px; }
+.dt-bar { display: flex; align-items: center; gap: 6px; padding: 8px 12px; background: #151515; border-bottom: 1px solid #222; color: #888; font-size: 12px; }
+.dt-bar i { width: 10px; height: 10px; border-radius: 50%; background: #333; }
+.dt-bar span { margin-left: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dt-replay { margin-left: auto; background: none; border: 1px solid #333; border-radius: 6px; color: #aaa; font: inherit; font-size: 11px; padding: 2px 8px; cursor: pointer; }
+.dt-replay:hover { color: var(--accent); border-color: var(--accent); }
+.dt-body { padding: 14px 16px 16px; display: grid; gap: 12px; }
+.dt-step { opacity: 0; transform: translateY(4px); animation: dt-in .45s ease forwards; animation-delay: calc(var(--i) * 1.4s + .2s); }
+.dt-thought { margin: 0 0 4px; color: #9a9a9a; line-height: 1.5; }
+.dt-thought::before { content: "● "; color: var(--accent); }
+.dt-cmd { margin: 0; color: #eee; overflow-x: auto; white-space: pre; }
+.dt-ps, .dt-ok { color: var(--accent); }
+.dt-done { color: #eee; }
+@keyframes dt-in { to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .dt-step { animation: none; opacity: 1; transform: none; } .cs-cur { animation: none; } }

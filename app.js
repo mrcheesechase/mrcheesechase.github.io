@@ -80,6 +80,11 @@
         <span class="bt-pill"><i></i>AUTONOMOUS CALLS</span>
         <p class="b-head">Cold calls that <em>improve themselves.</em></p>
       </div>`,
+    cybersupplies: () => `<div class="bnr bnr-cysu">
+        <div class="b-top"><img class="cs-mark" src="images/projects/cybersupplies-mark.svg" alt=""><span>Cyber Supplies</span></div>
+        <p class="b-head">Infrastructure for <em>agentic security research</em></p>
+        <div class="cs-term"><span class="dim">$</span> cysu javascript list --domain jaksec.com<span class="cs-cur"></span></div>
+      </div>`,
     nutrition: () => {
       const bars = [["protein", 78, "142g"], ["carbs", 60, "180g"], ["fat", 45, " 55g"], ["kcal", 88, "1840"]];
       return `<div class="art art-nutri">
@@ -96,6 +101,14 @@ ${bars.map(([k, pct, v]) => `<span class="row"><span class="dim">${k.padEnd(7)}<
   };
 
   const brandVars = p => p.accent ? ` style="--accent:${esc(p.accent)};--accent-soft:color-mix(in srgb, ${esc(p.accent)} 40%, transparent)"` : "";
+
+  // Animated agent-session replay for a project's `demo` (thought → command steps).
+  const demoTerm = d => `<div class="demo-term">
+      <div class="dt-bar"><i></i><i></i><i></i><span>${esc(d.title || "demo")}</span><button class="dt-replay" type="button">↻ replay</button></div>
+      <div class="dt-body">${d.steps.map((st, i) => `
+        <div class="dt-step" style="--i:${i}">${st.thought ? `<p class="dt-thought">${esc(st.thought)}</p>` : ""}${st.command ? `<p class="dt-cmd"><span class="dt-ps">$</span> ${esc(st.command)}</p>` : ""}</div>`).join("")}
+        ${d.done ? `<div class="dt-step dt-done" style="--i:${d.steps.length}"><span class="dt-ok">✓</span> ${esc(d.done)}</div>` : ""}
+      </div></div>`;
 
   const projectCard = (p, full) => {
     return `<a class="card" href="#/projects/${slug(p)}"${brandVars(p)}>${corners}
@@ -187,6 +200,7 @@ ${bars.map(([k, pct, v]) => `<span class="row"><span class="dim">${k.padEnd(7)}<
         ${p.url ? `<a class="btn-primary" href="${esc(p.url)}"${ext(p.url)}>visit ${esc(p.urlLabel || p.url.replace(/^https?:\/\//, "").replace(/\/$/, ""))} <span class="arrow">→</span></a>` : ""}
       </div>
       ${gallery.length ? `<div class="gallery${gallery.length > 2 ? " masonry" : ""}">${gallery.map(g => `<a class="card shot" href="${esc(g.src)}" target="_blank">${corners}<img src="${esc(g.src)}" alt="${esc(g.caption || p.title)}" loading="lazy">${g.caption ? `<span class="cap">${esc(g.caption)}</span>` : ""}</a>`).join("")}</div>` : ""}
+      ${p.demo ? demoTerm(p.demo) : ""}
       <div class="p-grid">
         <section class="prose">
           <div class="section-head"><h2>Overview</h2></div>
@@ -245,6 +259,12 @@ ${bars.map(([k, pct, v]) => `<span class="row"><span class="dim">${k.padEnd(7)}<
     startTyping();
   };
   window.addEventListener("hashchange", render);
+  // Replay the demo terminal by swapping its body for a fresh copy (restarts the CSS animations).
+  document.addEventListener("click", e => {
+    const b = e.target.closest(".dt-replay"); if (!b) return;
+    const body = b.closest(".demo-term").querySelector(".dt-body");
+    body.replaceWith(body.cloneNode(true));
+  });
   render();
 
   // ── Command palette (⌘K / Ctrl+K, or "/") ──

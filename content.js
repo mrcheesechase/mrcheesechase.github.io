@@ -35,20 +35,41 @@ window.SITE = {
   projects: [
     {
       title: "Cyber Supplies",
+      art: "cybersupplies",
+      accent: "#FFD400",            // brand yellow
+      logo: "images/projects/cybersupplies-logo.png",
+      logoLight: true,              // logo is on a light background
       role: "Co-Founder · Backend & Infrastructure",
       details: [
-        "Cyber Supplies is a two-person student startup working where <strong>cybersecurity meets AI</strong>.",
-        "I build and run much of the backend: a token-authenticated API gateway, storage and notes services, a web-crawling service and a command-line client, all deployed on Google Cloud (Cloud Run + Cloud SQL Postgres).",
-        // TODO: add what the product does for users, who it's for, and where it's at (users, funding, milestones).
+        "<a href=\"https://cybersupplies.app/\" target=\"_blank\" rel=\"noopener\">Cyber Supplies</a> is <em>infrastructure for agentic security research</em>. The idea: security research belongs to the researchers. Instead of every independent researcher or small team building their own plumbing, Cyber Supplies gives their AI agents ready-made tools to plug into, so they can spend their time on the research itself.",
+        "Researchers turn their methods into <strong>profiles</strong>: the skills, specialist agents, MCP servers and prompts for one stage of an investigation. Profiles are chained into a workflow such as <em>Recon → Attack → Triage</em> and run by <strong>Engine</strong>, a self-hosted app that executes each stage in its own Docker container on the researcher's own infrastructure. The same profiles, resources and results are available on their desktop, so they can review findings locally and feed what they learn into the next run.",
+        "Agents work through the <strong>cysu</strong> command-line client, which connects them to a toolkit: a proxy that captures in-scope endpoints with sample requests and responses; JavaScript analysis that collects bundles as agents browse, beautifies them, recovers original sources from source maps and indexes URLs, parameters and postMessage calls; encrypted storage for research files, test-account credentials and session cookies; and read-only test inboxes for one-time codes and password resets.",
+        "I co-founded the company and build and run much of the backend on Google Cloud: the token-authenticated API gateway, the storage, notes and email services, the JavaScript-analysis service and <strong>Engine</strong> itself, deployed on Cloud Run with Cloud SQL (PostgreSQL), plus the database migrations, deploys and production hardening behind them.",
       ],
+      demo: {
+        title: "agent session · JakSec research",
+        steps: [
+          { thought: "My research target is jaksec.com. First I'll check what JavaScript Cyber Supplies has already collected for that domain.", command: "cysu javascript list --domain jaksec.com" },
+          { thought: "There's already a collected bundle. I'll download it with its analysis manifest: beautified code, plus original sources recovered from source maps.", command: "cysu javascript download --domain jaksec.com" },
+          { thought: "Now I'll compare its URL references with endpoints the proxy has already captured.", command: "cysu endpoints list --domain '^jaksec\\.com$'" },
+          { thought: "Two URL references and one observed endpoint. I'll save the recon profile and hand off to the attack stage.", command: "cysu profiles save --profile recon | jq '{success, profile}'" },
+        ],
+        done: "Recon complete · attack stage queued in Engine",
+      },
       gallery: [],
       year: "2026",
       status: "building",
       featured: true,
-      summary: "Cybersecurity + AI startup. API gateway, storage service, crawler service and CLI running on Google Cloud.", // TODO
-      tags: ["Cloud Run", "PostgreSQL", "TypeScript", "Security"],
-      url: "",
-      features: ["Token-authenticated API gateway", "Notes & storage services", "Command-line client"], // TODO
+      summary: "Infrastructure for agentic security research: AI agents plug into a proxy, JavaScript analysis, encrypted storage and test inboxes, and run multi-stage workflows on the researcher's own infrastructure.",
+      tags: ["Node.js", "Cloud Run", "Cloud SQL / PostgreSQL", "Docker", "AI Agents", "Security"],
+      url: "https://cybersupplies.app/",
+      urlLabel: "cybersupplies.app",
+      features: [
+        "Profiles that package a researcher's skills, agents, MCP servers and prompts",
+        "Engine: multi-stage workflows (Recon → Attack → Triage) in Docker on your own infrastructure",
+        "Proxy capture + JavaScript analysis with source-map recovery",
+        "Encrypted research storage and read-only test inboxes",
+      ],
     },
     {
       title: "OutSpoken",
@@ -143,7 +164,7 @@ window.SITE = {
 
   // Work, leadership, roles. Newest first.
   experience: [
-    { role: "Co-Founder", org: "Cyber Supplies", period: "2026 — Present", url: "", detail: "Building backends, gateways and cloud infrastructure for a two-person cybersecurity + AI startup." },
+    { role: "Co-Founder", org: "Cyber Supplies", period: "2026 — Present", url: "https://cybersupplies.app/", detail: "Co-founded a two-person startup building infrastructure for agentic security research. I build and run the backend on Google Cloud: API gateway, storage, email and JavaScript-analysis services, and Engine, the self-hosted workflow runner." },
     { role: "Outbound Sales Advisor", org: "Forward Emphasis International", period: "Jun — Jul 2026", url: "", detail: "Converted free-trial members to paid subscriptions over high-volume outbound calls, consistently exceeding monthly conversion targets." },
     { role: "Co-Developer & Marketer", org: "Boltun", period: "2025", url: "https://boltun.io/", detail: "Helped build and test an autonomous AI cold-calling product, and worked on its marketing." },
     { role: "Customer Service Representative", org: "Forward Emphasis", period: "Sep 2024 — Aug 2025", url: "", detail: "Handled a high volume of motor-insurance queries under tight deadlines, gathering and cross-checking details from policyholders and third parties." },
